@@ -1,0 +1,53 @@
+services:
+  target_1:
+    image: node:22-alpine
+    container_name: target_1
+    working_dir: /out
+    volumes:
+      - ./assignment:/app:ro
+      - ./assignment/artifacts/target_1:/out
+    command:
+      - sh
+      - -c
+      - node /app/app.js /app/target > /out/stdout.log
+
+  target_2:
+    image: node:22-alpine
+    container_name: target_2
+    working_dir: /out
+    volumes:
+      - ./assignment:/app:ro
+      - ./assignment/artifacts/target_2:/out
+    command:
+      - sh
+      - -c
+      - node /app/app.js /app/target > /out/stdout.log
+
+  splitter:
+    image: node:22-alpine
+    container_name: splitter
+    working_dir: /out
+    volumes:
+      - ./assignment:/app:ro
+      - ./assignment/artifacts/splitter:/out
+    command:
+      - sh
+      - -c
+      - node /app/app.js /app/splitter > /out/stdout.log
+    depends_on:
+      - target_1
+      - target_2
+
+  agent:
+    image: node:22-alpine
+    container_name: agent
+    working_dir: /out
+    volumes:
+      - ./assignment:/app:ro
+      - ./assignment/artifacts/agent:/out
+    command:
+      - sh
+      - -c
+      - node /app/app.js /app/agent > /out/stdout.log
+    depends_on:
+      - splitter

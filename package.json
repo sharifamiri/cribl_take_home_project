@@ -1,0 +1,26 @@
+{
+  "name": "cribl_take_home_project",
+  "version": "1.0.0",
+  "description": "Take-home SDET assignment for Cribl. Includes Playwright-based end-to-end automation validating data flow across Agent → Splitter → Target components.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharifamiri/cribl_take_home_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharifamiri/cribl_take_home_project/issues"
+  },
+  "homepage": "https://github.com/sharifamiri/cribl_take_home_project#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
