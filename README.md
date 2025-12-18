@@ -76,6 +76,18 @@ The test performs the following steps:
 5. Validates that all input events are delivered exactly once
 6. Stops and removes Docker containers
 
+## CI / CD
+
+This project uses GitHub Actions for continuous integration.
+
+The CI pipeline runs automatically on every push and pull request.
+It installs dependencies, runs the Playwright end-to-end tests, and uploads test artifacts.
+
+The CI configuration is located at:
+.github/workflows/ci.yml
+
+Test artifacts (logs and reports) are available in the GitHub Actions run results.
+
 ## Troubleshooting
 
 If the test fails:
